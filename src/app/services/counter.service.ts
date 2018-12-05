@@ -16,7 +16,7 @@ export class CounterService {
 
   /** Allows subscription to the behavior subject as an observable */
   getCount(): Observable<Count> {
-    return this.countTracker.asObservable();
+    return this.countTracker;
   }
 
   /**
