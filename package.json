@@ -43,6 +43,8 @@
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "typescript": "~2.5.3",
+    "cryptiles": ">=4.1.2",
+    "hoek": ">=4.2.1"
   }
 }
