@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { CounterService } from '../services/counter.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './output.component.html',
   styleUrls: ['./output.component.css']
 })
-export class OutputComponent implements OnInit {
+export class OutputComponent implements OnInit, OnDestroy {
 
   constructor(private counter: CounterService) { }
 
@@ -26,8 +26,7 @@ export class OutputComponent implements OnInit {
     );
   }
 
-  ngOnDestory(): void {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-
 }
