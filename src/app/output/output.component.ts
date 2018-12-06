@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CounterService } from '../services/counter.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-output',
@@ -12,9 +13,10 @@ export class OutputComponent implements OnInit {
 
   @Input() text: string;
   currentCount: number;
+  subscription;
 
   ngOnInit(): void {
-    this.counter.getCount().subscribe(
+    this.subscription = this.counter.getCount().subscribe(
       res => {
         this.currentCount = res.value;
       },
@@ -22,6 +24,10 @@ export class OutputComponent implements OnInit {
         console.error(`An error occurred: ${err.message}`);
       }
     );
+  }
+
+  ngOnDestory(): void {
+    this.subscription.unsubscribe();
   }
 
 }
